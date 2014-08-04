@@ -5,7 +5,9 @@ sudo docker build -t soone/pyinotify-server .
 
 ## 创建客户端
 mv Dockerfile Dockerfile_server 
+
 mv Dockerfile_client Dockerfile 
+
 sudo docker build -t soone/pyinotify-client . 
 
 ## 在需要服务器端的地方执行以下代码 
