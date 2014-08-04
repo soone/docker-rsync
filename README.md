@@ -17,10 +17,10 @@ sudo docker run -d -P --name rsync-server soone/pyinotify-server
 sudo docker ps
 
 ## 挂载到你要开启的容器里，如： 
-sudo docker run -t -i --volumes-from rsync-server soone/centos bash
+sudo docker run -t -i --volumes-from rsync-server centos bash
 
 ## 在对应的客户端执行以下代码
-sudo docker run -d -P --name rsync-client soone/pyinotify-server 192.168.x.x 49156
+sudo docker run -d -P --name rsync-client soone/pyinotify-client 192.168.x.x 49157
 
 ## 挂载到你要开启的容器里，如： 
-sudo docker run -t -i --volumes-from rsync-client soone/centos bash
+sudo docker run -t -i --volumes-from rsync-client centos bash
