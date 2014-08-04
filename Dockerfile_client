@@ -1,0 +1,20 @@
+FROM centos:update
+
+RUN curl -O http://python-distribute.org/distribute_setup.py
+RUN python distribute_setup.py
+
+RUN curl -O https://raw.githubusercontent.com/pypa/pip/master/contrib/get-pip.py
+RUN python get-pip.py
+
+RUN rm *.tar.gz distribute_setup.py get-pip.py
+
+RUN pip install pyinotify
+
+ADD rsyncd.client.pas /etc/rsyncd.client.pas
+RUN chmod 600 /etc/rsyncd.client.pas
+
+ADD pyrsync.py /pyrsync.py
+
+VOLUME ["/data"]
+
+ENTRYPOINT ["python", "/pyrsync.py"]
