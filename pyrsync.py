@@ -14,7 +14,7 @@ class RsyncCmd:
     def __init__(self):
         self.dst = HOST
         self.port = PORT
-        self.cmd = "rsync -arz --delete --timeout=60 --port=%s /data/ soone@%s::data --password-file=/etc/rsyncd.client.pas" % (self.port, self.dst)
+        self.cmd = "rsync -arz --timeout=60 --port=%s /data/ soone@%s::data --password-file=/etc/rsyncd.client.pas" % (self.port, self.dst)
         print self.cmd
 
 class EventHandler(ProcessEvent):
